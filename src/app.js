@@ -35,7 +35,7 @@ async function  Init(){
             let count = 0
             const intervalId = setInterval(() => {
               window.scrollBy(0,200)
-              if (count >= 20000) {
+              if (count >= 16000) {
                 clearInterval(intervalId)
                 resolve(count)
               }
@@ -68,12 +68,12 @@ async function  Init(){
         //document.querySelectorAll('.job-card')[0].querySelector('.job-card__listed-status').innerText
 
        const data=await page.evaluate(()=>
-        [...document.querySelectorAll(".job-card")].map(e=> {
-              let cargo=e.querySelector('.job-card__title').innerText
-              let logo=e.querySelector('.js-job-card-company-logo').getAttribute('src')
-              let empresa=e.querySelector('.job-card__company-name').innerText
-              let ubicacion=e.querySelector('.job-card__location').innerText.split('empleo\n')[1]
-              let status=e.querySelector('.job-card__listed-status').innerText 
+        [...document.querySelectorAll(".job-card")].map(item=> {
+              let cargo=item.querySelector('.job-card__title').innerText
+              let logo=item.querySelector('.js-job-card-company-logo').getAttribute('src')
+              let empresa=item.querySelector('.job-card__company-name').innerText
+              let ubicacion=item.querySelector('.job-card__location').innerText.split('empleo\n')[1]
+              let status=item.querySelector('.job-card__listed-status').innerText 
               return {
                     cargo,
                     logo,

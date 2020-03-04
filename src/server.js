@@ -1,27 +1,12 @@
 import conexion from './mongodb/index'
 import Jobs from './models/index'
-import  { ApolloServer, gql } from 'apollo-server';
+import  { ApolloServer } from 'apollo-server';
 import  Init from './app';
-import { Model } from 'mongoose';
+
+import typeDefs from './typedefs/index'
+import resolvers from './resolvers/index'
 
 let arr=[];
-const typeDefs = gql`
-  type Job {
-    cargo:String
-    logo:String
-    empresa:String
-    ubicacion:String
-    status:String
-  }
-  type Query {
-    Jobs: [Job]
-  }
-`;
-const resolvers={
-    Query:{
-        Jobs:()=>Jobs.find()
-    }
-}
  class Application{
   constructor(){  
     this.server;
