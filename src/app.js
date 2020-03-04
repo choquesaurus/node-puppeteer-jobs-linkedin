@@ -30,6 +30,7 @@ async function  Init(){
         await page.goto('https://www.linkedin.com/jobs/')
         //const lastPosition = await scrollPageToBottom(page)
         //console.log(`lastPosition: ${lastPosition}`)
+        
         const scrolling =await page.evaluate(()=>{
           return new Promise((resolve) => {
             let count = 0
